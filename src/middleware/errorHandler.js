@@ -1,4 +1,4 @@
-const createError = require('http-errors');
+import createError from 'http-errors';
 
 // eslint-disable-next-line no-unused-vars
 const errorHandler = (err, req, res, next) => {
@@ -12,4 +12,4 @@ const errorHandler = (err, req, res, next) => {
   }
 };
 
-module.exports = errorHandler;
+export default errorHandler;

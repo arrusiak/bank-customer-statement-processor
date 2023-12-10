@@ -1,11 +1,12 @@
-![example workflow](https://github.com/rzgry/Express-REST-API-Template/actions/workflows/node.js.yml/badge.svg)
-[![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
+# BANK CUSTOMER STATEMENT PROCESSOR
 
-# Express-REST-API-Template
+> A NodeJS backend project for BANK CUSTOMER STATEMENT PROCESSOR
 
-Simple express boilerplate based off of [express-generator](https://expressjs.com/en/starter/generator.html). Includes [eslint](https://eslint.org) and [prettier](https://prettier.io) for linting/code formatting, [nodemon](https://github.com/remy/nodemon) for automatic server restarting, and [Jest](https://jestjs.io) for testing.
+## DEPENDENCIES
 
-## Getting Started
+NodeJS - v14.16.0
+
+NPM - 6.14.11
 
 ### Install dependencies
 

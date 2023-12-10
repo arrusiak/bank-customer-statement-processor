@@ -1,9 +1,10 @@
 const csv = require('fast-csv');
 
-const parseCsv = (dataBuffer) => {
+exports.parseCsv = async (dataBuffer) => {
+  try {
     return new Promise((resolve, reject) => {
       const results = [];
-  
+
       csv
         .parseString(dataBuffer, { headers: true })
         .on('data', (data) => {
@@ -17,6 +18,7 @@ const parseCsv = (dataBuffer) => {
           reject(error);
         });
     });
-  };
-
-  module.exports = { parseCsv };
+  } catch (error) {
+    throw new Error(error);
+  }
+};
