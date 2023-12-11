@@ -4,9 +4,9 @@
 
 ## DEPENDENCIES
 
-NodeJS - v14.16.0
+NodeJS - v18.13.0
 
-NPM - 6.14.11
+NPM - 8.19.3
 
 ### Install dependencies
 
