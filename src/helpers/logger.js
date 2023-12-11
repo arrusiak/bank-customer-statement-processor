@@ -7,4 +7,4 @@ const logger = createLogger({
     transports: loggerTransports
 });
 
-module.exports = logger;
+export default logger;

@@ -10,4 +10,4 @@ router.get('/', (req, res) => {
 
 router.use('/customer-statement', CustomerStatementRouter);
 
-module.exports = router;
+export default router;

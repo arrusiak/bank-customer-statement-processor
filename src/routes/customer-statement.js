@@ -1,12 +1,11 @@
 import express from 'express';
 
-const CustomerStatementController = require('../controllers/customer-statement.controller');
+import * as CustomerStatementController from '../controllers/customer-statement.controller';
+
+import upload from '../middleware/upload';
 
 const router = express.Router();
 
-// Require the upload middleware
-const upload = require('../middleware/ upload');
+router.post('/',  upload.single('file'), CustomerStatementController.validateRecords);
 
-router.post('/',  upload.single('file'), CustomerStatementController.uploadFile)
-
-module.exports = router;
+export default router;

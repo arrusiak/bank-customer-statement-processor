@@ -1,6 +1,7 @@
-const app = require('./src/app');
-const { port } = require('./src/config');
+import app from './src/app';
+import appConfig from './src/config';
+import logger from './src/helpers/logger';
 
-const server = app.listen(port, () => {
-  console.log(`Express is running on port ${server.address().port}`);
+app.listen(appConfig.port, () => {
+    logger.info(`Server is running on port ${appConfig.port}`);
 });

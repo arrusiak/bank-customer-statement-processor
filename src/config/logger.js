@@ -40,7 +40,7 @@ const loggerFormat = process.env.NODE_ENV !== 'production'
     : productionFormat;
 
 // Create transports for loging by env. can be also cloud
-const loggerTransports = process.env.NODE_ENV == 'production'  ? [
+const loggerTransports = process.env.NODE_ENV === 'production'  ? [
     new transports.File({filename: `${appRoot}/logs/error.log`, level: 'error'}),
     new transports.File({filename: `${appRoot}/logs/combined.log`})
 ] : [new transports.Console()];

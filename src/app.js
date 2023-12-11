@@ -1,13 +1,12 @@
+import express from 'express';
 import {handleError} from './helpers/error';
 
-const express = require('express');
-const routes = require('./routes/index');
+import routes from './routes/index';
 
 const app = express();
 
 app.use('/', routes);
 
-// should be at the end of app stack
 app.use(handleError);
 
-module.exports = app;
+export default app;

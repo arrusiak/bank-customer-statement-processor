@@ -1,38 +1,33 @@
-const xml2js = require('xml2js');
+import xml2js from 'xml2js';
 
 const convertRecord = (record) => {
     const flatRecord = {};
-    // eslint-disable-next-line no-restricted-syntax
     for (const prop in record) {
         if (prop === '$') {
-          // eslint-disable-next-line guard-for-in, no-restricted-syntax
-          for (const innerProp in record[prop]) {
-              flatRecord[innerProp] = record[prop][innerProp];
+            for (const innerProp of Object.keys(record[prop])) {
+                flatRecord[innerProp] = record[prop][innerProp];
             }
-          } else {
-            // Use the first element of the array for other properties
-            // eslint-disable-next-line prefer-destructuring
-            flatRecord[prop] = record[prop][0];
-          }
+        } else {
+            [flatRecord[prop]] = record[prop];
+        }
     }
-    
     return flatRecord;
 };
-  
-const convertResults = (records) => {
-    return records.map(convertRecord);
+
+const convertResults = records => records.map(convertRecord);
+
+const xmlParser = async (dataBuffer) => {
+    try {
+        const parser = new xml2js.Parser();
+
+        const result = await parser.parseStringPromise(dataBuffer);
+
+        return convertResults(result.records.record);
+    } catch (error) {
+        throw new Error(error);
+    }
 };
 
-exports.xmlParser = async (dataBuffer) => {
-  try {
-    const parser = new xml2js.Parser();
-
-    const results = parser.parseStringPromise(dataBuffer).then(function (result) {
-      return convertResults(result.records.record);
-    })
-
-    return results;
-  } catch (error) {
-    throw new Error(error);
-  }
+export {
+    xmlParser
 };

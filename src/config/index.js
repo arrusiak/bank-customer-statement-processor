@@ -1,5 +1,8 @@
-require('dotenv').config(); // this is important!
+import dotenv from 'dotenv';
 
-module.exports = {
-  port: process.env.PORT || 3000,
+dotenv.config();
+
+export default {
+    port: process.env.PORT || 3000,
+    acceptFileMimeTypes: ['text/csv', 'application/xml']
 };
