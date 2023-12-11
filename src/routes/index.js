@@ -1,12 +1,13 @@
-const express = require('express');
+import express from 'express';
+
+import CustomerStatementRouter from './customer-statement';
 
 const router = express.Router();
 
-const CustomerStatementController = require('../controllers/customer-statement.controller')
-// Require the upload middleware
-const upload = require('../middleware/ upload');
+router.get('/', (req, res) => {
+    res.send('Hello');
+});
 
-
-router.post('/',  upload.single('file'), CustomerStatementController.uploadFile)
+router.use('/customer-statement', CustomerStatementRouter);
 
 module.exports = router;

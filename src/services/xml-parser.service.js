@@ -23,15 +23,16 @@ const convertResults = (records) => {
     return records.map(convertRecord);
 };
 
-const xmlParser = async (xmlDataBuffer) => {
-  const parser = new xml2js.Parser();
-    
-  // Parse XML
-  const results = parser.parseStringPromise(xmlDataBuffer).then(function (result) {
-    return convertResults(result.records.record);
-  })
+exports.xmlParser = async (dataBuffer) => {
+  try {
+    const parser = new xml2js.Parser();
 
-  return results;
+    const results = parser.parseStringPromise(dataBuffer).then(function (result) {
+      return convertResults(result.records.record);
+    })
+
+    return results;
+  } catch (error) {
+    throw new Error(error);
+  }
 };
-  
-module.exports = { xmlParser };
